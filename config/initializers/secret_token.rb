@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Blocmarks::Application.config.secret_key_base = '874fc202beb7f313bd8e2683fae282558d5d8ee4c2e7b044b760d2e5db35892cf40adaa5316ff01019629a117585c039d8b428194af7a32424958c095dc7b633'
+Blocmarks::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']
