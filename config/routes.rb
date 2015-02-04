@@ -1,6 +1,7 @@
 Blocmarks::Application.routes.draw do
-  get "welcome/index"
-  get "welcome/about"
+  resources :topics
+
+  get 'about' => "welcome#about"
 
   root to: 'welcome#index'
 
