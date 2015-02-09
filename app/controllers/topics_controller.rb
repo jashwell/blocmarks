@@ -30,11 +30,24 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
 
     if @topic.update_attributes(params.require(:topic).permit(:title))
-      redirect to @topic
+      redirect_to @topic
     else
       flash[:error] = "Error saving topic."
       render :edit
     end
   end
+
+  def destroy
+    @topic = Topic.find(params[:id])
+
+    if @topic.destroy
+      flash[:notice] = "Topic was deleted succcessfully."
+      redirect_to action: "index"
+    else
+      flash[:error] = "There was an error deleting the topic."
+      render :show
+    end
+  end
+
 
 end

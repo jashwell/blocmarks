@@ -1,4 +1,5 @@
 Blocmarks::Application.routes.draw do
+  get "incoming/create"
   devise_for :users
   resources :topics
 
