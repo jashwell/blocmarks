@@ -1,10 +1,13 @@
 class TopicsController < ApplicationController
+  respond_to :html, :js
+
   def index
     @topics = Topic.all
   end
 
   def show
     @topic = Topic.find(params[:id])
+    @bookmarks = @topic.bookmarks
   end
 
   def new
