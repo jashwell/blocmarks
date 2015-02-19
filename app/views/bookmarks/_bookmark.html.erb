@@ -6,7 +6,7 @@
         <%= link_to "#{bookmark.url}" %>
         <br />
         <small>
-          <% if policy(bookmark).update? %>
+          <% if policy(bookmark).edit? %>
           <%= link_to "Edit Bookmark", edit_topic_bookmark_path(topic, bookmark), class: 'label label-default' %>
           <% end %>
           <br />

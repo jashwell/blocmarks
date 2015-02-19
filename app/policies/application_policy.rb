@@ -6,8 +6,8 @@ class ApplicationPolicy
     @record = record
   end
 
-  def index
-    true
+  def index?
+    false
   end
 
   def show?
@@ -35,7 +35,7 @@ class ApplicationPolicy
   end
 
   def scope
-    record.class
+    Pundit.policy_scope!(user, record.class)
   end
 
   class Scope
