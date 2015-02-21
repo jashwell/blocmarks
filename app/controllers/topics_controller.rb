@@ -12,10 +12,12 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
+    authorize @topic
   end
 
   def create
     @topic = Topic.new(params.require(:topic).permit(:title))
+    authorize @topic
 
     if @topic.save
       redirect_to @topic, notice: "Topic was added."
@@ -27,10 +29,12 @@ class TopicsController < ApplicationController
 
   def edit
     @topic = Topic.find(params[:id])
+    authorize @topic
   end
 
   def update
     @topic = Topic.find(params[:id])
+    authorize @topic
 
     if @topic.update_attributes(params.require(:topic).permit(:title))
       redirect_to @topic
@@ -42,6 +46,7 @@ class TopicsController < ApplicationController
 
   def destroy
     @topic = Topic.find(params[:id])
+    authorize @topic
 
     if @topic.destroy
       flash[:notice] = "Topic was deleted succcessfully."
