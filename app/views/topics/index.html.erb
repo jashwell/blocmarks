@@ -9,7 +9,9 @@
     <% @topics.each do |topic| %>
       <h3><%= link_to topic.title, topic %>
         <small>
+          <% if policy(topic).destroy? %>
           <%= link_to "Delete Topic", [@topic, topic], method: :delete, class: 'btn btn-default btn-xs', data: { confirm: 'Are you sure you want to delete this topic?' } %> 
+          <% end %>
         </small>
       </h3>
       <br />
