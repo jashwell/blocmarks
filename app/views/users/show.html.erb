@@ -1,5 +1,8 @@
-<h1>My Blocmarks</h1>
-<% @topics.each do |topic| %>
-      <h3><%= link_to topic.title, topic %>
-s
+<h1> <%= @user.name %> Blocmarks </h1>
+<h2>My Blocmarks</h2>
+        <% render @user_bookmarks %>
+
+
+<h2>Liked Blocmarks</h2>
+        <% render @liked_bookmarks %>
 

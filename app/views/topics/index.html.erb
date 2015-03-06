@@ -20,7 +20,7 @@
             <% topic.bookmarks.each do |bookmark| %>
               <div class="col-xs-6 col-md-3 thumbnail">
                 <%= link_to "#{bookmark.url}" %>
-                
+                <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
               </div>
             <% end %>
           </div>
