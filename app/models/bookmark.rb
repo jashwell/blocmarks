@@ -5,4 +5,5 @@ class Bookmark < ActiveRecord::Base
 
   validates :user, presence: true
   validates :topic, presence: true
+  validates :url, presence: true
 end

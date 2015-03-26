@@ -1,9 +1,10 @@
 class UserMailer < ActionMailer::Base
-  default from: "blocmarks@domain.com"
 
-  def welcome_email(user)
-    @user = user
-    @url = 'http://localhost:3000/users/sign_in'
-    mail(to: @user.email, subject: 'Welcome to Blocmarks')
+  def receive(email)
+    page = Page.find_by(address: email.to.first)
+    page.emails.create(
+      topic: email.subject
+      bookmark: email.body
+    )
   end
 end
